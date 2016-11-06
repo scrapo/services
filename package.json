@@ -1,0 +1,9 @@
+{
+	"name": "services",
+	"description": "services",
+	"repository": "scrapo/services",
+	"version": "1.0.0",
+	"dependencies": {
+		"amazon-product-api": "^0.4.2"
+	}
+}
