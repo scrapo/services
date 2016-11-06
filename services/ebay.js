@@ -19,6 +19,9 @@ module.exports = {
 				categoryTitle: {from: [['primaryCategory', 'categoryName']]}
 			}
 		},
+		details: {
+			selector: ['Item']
+		},
 		errors: {
 			selector: ['errorMessage', 'error'],
 			attributes: {
@@ -30,7 +33,11 @@ module.exports = {
 	actions: {
 		search: {
 			request: {url: 'http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&SECURITY-APPNAME={{appId}}&keywords={{query}}'},
-			templates: {auctions: 'auctions', errors: 'errors'}
+			templates: {items: 'auctions', errors: 'errors'}
+		},
+		details: {
+			request: {url: 'http://open.api.ebay.com/shopping?callname=GetMultipleItems&responseencoding=JSON&appid={{appId}}&siteid=0&version=897&ItemID={{id}}&IncludeSelector=Details'},
+			templates: {items: 'details', errors: 'errors'}
 		}
 	}
 };
